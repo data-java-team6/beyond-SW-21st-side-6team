@@ -1,0 +1,48 @@
+
+<Concert 정보에 필요한 변수>
+- 공연ID : concertId
+- 공연 제목 : title
+- 공연 날짜 : ConcertDate
+- 공연 소개 : description
+- 출연 밴드 ID : artistId
+
+<Seat 정보에 필요한 변수>
+- 좌석 ID : seatId
+- 공연 ID : concertId
+- 좌석 번호	: seatNumber
+- 좌석 가격	: price
+- 예약 여부	: isReserved
+
+----
+
+<User 정보에 필요한 변수>
+- 회원ID : userId
+- 회원 비밀번호 : pwd
+- 회원 이름 : userName	
+- 예치금 : deposit	
+
+<Refund 정보에 필요한 변수>
+- 공연ID : concertId
+- 공연 제목 : title
+- 공연 날짜 : ConcertDate
+- 좌석 ID : seatId
+- 좌석 총 개수 : countSeat
+- 가격 : price
+- 총 결제금액 : totalPrice
+> "좌석 " + countSeat + "개 * " + price " = " + totalPrice
+
+----
+<payment 정보에 필요한 변수>
+- 공연ID : concertId
+- 공연 제목 : title
+- 공연 날짜 : ConcertDate
+- 좌석 ID : seatId (내가 선택한 좌석)
+- 좌석 총 개수 : countSeat
+- 가격 : price
+- 총 결제금액 : totalPrice
+> "좌석 " + countSeat + "개 * " + price " = " + totalPrice
+
+
+
+
+

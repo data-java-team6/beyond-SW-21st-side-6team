@@ -1,7 +1,6 @@
 package com.team6.dva.menu;
 
-import com.team6.dva.controller.LoginController;
-import com.team6.dva.controller.RegisterController;
+import com.team6.dva.controller.AuthController;
 import com.team6.dva.model.User;
 import com.team6.dva.service.UserService;
 
@@ -11,9 +10,7 @@ public class LoginMenu {
 
     private final UserService userService = new UserService();
     private final Scanner sc = new Scanner(System.in);
-    private final LoginController loginController = new LoginController(userService, sc);
-    private final RegisterController registerController = new RegisterController(userService, sc);
-
+    private final AuthController authController = new AuthController(userService, sc);
     public User start() {
         int choice;
         String menu = """
@@ -35,8 +32,8 @@ public class LoginMenu {
             sc.nextLine();
 
             switch (choice) {
-                case 1: loginController.login(); break;
-                case 2: registerController.register(); break;
+                case 1: authController.login(); break;
+                case 2: authController.register(); break;
                 case 3: break;
                 default:
                     System.out.println("번호 잘못입력했어요");

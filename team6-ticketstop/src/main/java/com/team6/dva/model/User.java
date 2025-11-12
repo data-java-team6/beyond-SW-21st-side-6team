@@ -6,6 +6,9 @@ public class User {
     private String userName;
     private int deposit;
 
+    public User() {
+    }
+
     public User(String userId, String pwd, String userName, int deposit) {
         this.userId = userId;
         this.pwd = pwd;

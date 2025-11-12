@@ -33,8 +33,10 @@ public class MainMenu {
 
             switch (choice) {
                 case 1:
+                    myPageMenu.showMyPage();
                     break;
                 case 2:
+                    concertMenu.showConcertList();
                     break;
                 case 3:
                     System.out.println("로그아웃 합니다. 안녕히가세요👋");

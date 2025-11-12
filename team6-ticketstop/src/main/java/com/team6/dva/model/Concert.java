@@ -9,6 +9,9 @@ public class Concert {
     private String description;
     private List<String> artistIds;
 
+    public Concert() {
+    }
+
     public Concert(String concertId, String title, String concertDate, String description, List<String> artistIds) {
         this.concertId = concertId;
         this.title = title;

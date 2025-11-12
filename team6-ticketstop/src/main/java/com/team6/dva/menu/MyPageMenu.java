@@ -1,15 +1,16 @@
 package com.team6.dva.menu;
 
-import com.team6.dva.service.ShowDeposit;
-import com.team6.dva.service.ShowMyConcert;
+import com.team6.dva.model.User;
+import com.team6.dva.service.MyPageService;
 
 import java.util.Scanner;
 
 public class MyPageMenu {
 
+    private final User user = new User();
+
     private final Scanner sc = new Scanner(System.in);
-    private final ShowDeposit showDeposit = new ShowDeposit();
-    private final ShowMyConcert showMyConcert = new ShowMyConcert();
+    private final MyPageService myPageService = new MyPageService();
 
     public void showMyPage() {
         int choice = 0;
@@ -34,10 +35,10 @@ public class MyPageMenu {
 
             switch (choice) {
                 case 1:
-                    showDeposit.showDeposit();
+                    myPageService.showDeposit(user);
                     break;
                 case 2:
-                    showMyConcert.showMyConcert();
+                    myPageService.showMyConcert();
                     break;
                 case 3:
                     break;

@@ -1,19 +1,39 @@
 package com.team6.dva.controller;
 
-import com.team6.dva.menu.LoginMenu;
 import com.team6.dva.model.User;
 import com.team6.dva.service.UserService;
 
 import java.util.Scanner;
 
-public class RegisterController {
+public class AuthController {
 
     private final UserService userService;
     private final Scanner sc;
 
-    public RegisterController(UserService userService, Scanner sc) {
+    public AuthController(UserService userService, Scanner sc) {
         this.userService = userService;
         this.sc = sc;
+    }
+
+    public User login() {
+        String id;
+        String pwd;
+        String loginMenu = """
+                ╔════════════════════════════════╗
+                ║                                ║
+                ║             로그인              ║
+                ║                                ║
+                ╚════════════════════════════════╝
+                """;
+        System.out.println(loginMenu);
+        System.out.print("ID > ");
+        id = sc.nextLine();
+        System.out.print("PW > ");
+        pwd = sc.nextLine();
+
+        // ID, PW 회원 테이블에 존재, 일치 시 메인 메뉴로 돌아가기
+
+        return null;
     }
 
     public void register() {

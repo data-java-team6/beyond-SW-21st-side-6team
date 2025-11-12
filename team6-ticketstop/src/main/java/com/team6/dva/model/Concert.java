@@ -3,60 +3,71 @@ package com.team6.dva.model;
 import java.util.List;
 
 public class Concert {
-    private String concertId;
-    private String title;
-    private String concertDate;
-    private String description;
-    private List<String> artistIds;
+
+    private int show_no;
+    private String show_name;
+    private String show_info;
+    private String show_date;
+    private String pay_start;
+    private String pay_end;
 
     public Concert() {
     }
 
-    public Concert(String concertId, String title, String concertDate, String description, List<String> artistIds) {
-        this.concertId = concertId;
-        this.title = title;
-        this.concertDate = concertDate;
-        this.description = description;
-        this.artistIds = artistIds;
+    public Concert(int show_no, String show_name, String show_info, String show_date, String pay_start, String pay_end) {
+        this.show_no = show_no;
+        this.show_name = show_name;
+        this.show_info = show_info;
+        this.show_date = show_date;
+        this.pay_start = pay_start;
+        this.pay_end = pay_end;
     }
 
-    public String getConcertId() {
-        return concertId;
+    public int getShow_no() {
+        return show_no;
     }
 
-    public void setConcertId(String concertId) {
-        this.concertId = concertId;
+    public void setShow_no(int show_no) {
+        this.show_no = show_no;
     }
 
-    public String getTitle() {
-        return title;
+    public String getShow_name() {
+        return show_name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setShow_name(String show_name) {
+        this.show_name = show_name;
     }
 
-    public String getConcertDate() {
-        return concertDate;
+    public String getShow_info() {
+        return show_info;
     }
 
-    public void setConcertDate(String concertDate) {
-        this.concertDate = concertDate;
+    public void setShow_info(String show_info) {
+        this.show_info = show_info;
     }
 
-    public String getDescription() {
-        return description;
+    public String getShow_date() {
+        return show_date;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setShow_date(String show_date) {
+        this.show_date = show_date;
     }
 
-    public List<String> getArtistIds() {
-        return artistIds;
+    public String getPay_start() {
+        return pay_start;
     }
 
-    public void setArtistIds(List<String> artistIds) {
-        this.artistIds = artistIds;
+    public void setPay_start(String pay_start) {
+        this.pay_start = pay_start;
+    }
+
+    public String getPay_end() {
+        return pay_end;
+    }
+
+    public void setPay_end(String pay_end) {
+        this.pay_end = pay_end;
     }
 }

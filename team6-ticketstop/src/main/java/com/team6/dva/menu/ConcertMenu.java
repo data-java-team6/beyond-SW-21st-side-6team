@@ -1,7 +1,11 @@
 package com.team6.dva.menu;
 
+import com.team6.dva.controller.ConcertController;
 import com.team6.dva.model.Concert;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Scanner;
 
 public class ConcertMenu {
@@ -11,8 +15,8 @@ public class ConcertMenu {
 
     public void showConcertList() {
 
-        String concertTitle ="";
-        String concertDate;
+        String concertTitle = concert.getShow_name();
+        String concertDate = concert.getShow_date();
         String choiceConcert;
 
         String menu = """
@@ -27,7 +31,13 @@ public class ConcertMenu {
             // 콘서트 정보
             // 공연명 , 공연 날짜
             // 목록 보여주기
+            Connection con = null;
+            PreparedStatement pstmt = null;
+            ResultSet rs = null;
 
+            ConcertController concertController = new ConcertController();
+
+            rs = concertController.getConcertInfo(con, pstmt, rs);
 
             System.out.print("원하는 공연 명을 입력해주세요 > ");
             choiceConcert = sc.nextLine();

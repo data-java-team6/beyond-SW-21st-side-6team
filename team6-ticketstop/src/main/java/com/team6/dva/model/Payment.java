@@ -1,77 +1,41 @@
 package com.team6.dva.model;
 
 public class Payment {
-    private String concertId;
-    private String title;
-    private String concertDate;
-    private String seatId;
-    private int countSeat;
-    private int price;
-    private int totalPrice;
 
-    public Payment(String concertId, String title, String concertDate, String seatId, int countSeat, int price) {
-        this.concertId = concertId;
-        this.title = title;
-        this.concertDate = concertDate;
-        this.seatId = seatId;
-        this.countSeat = countSeat;
-        this.price = price;
-        this.totalPrice = countSeat * price;
+    private int member_no;
+    private int seat_id;
+    private int total_price;
+
+    public Payment() {
     }
 
-    public String getConcertId() {
-        return concertId;
+    public Payment(int member_no, int seat_id, int total_price) {
+        this.member_no = member_no;
+        this.seat_id = seat_id;
+        this.total_price = total_price;
     }
 
-    public void setConcertId(String concertId) {
-        this.concertId = concertId;
+    public int getMember_no() {
+        return member_no;
     }
 
-    public String getTitle() {
-        return title;
+    public void setMember_no(int member_no) {
+        this.member_no = member_no;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public int getSeat_id() {
+        return seat_id;
     }
 
-    public String getConcertDate() {
-        return concertDate;
+    public void setSeat_id(int seat_id) {
+        this.seat_id = seat_id;
     }
 
-    public void setConcertDate(String concertDate) {
-        this.concertDate = concertDate;
+    public int getTotal_price() {
+        return total_price;
     }
 
-    public String getSeatId() {
-        return seatId;
-    }
-
-    public void setSeatId(String seatId) {
-        this.seatId = seatId;
-    }
-
-    public int getCountSeat() {
-        return countSeat;
-    }
-
-    public void setCountSeat(int countSeat) {
-        this.countSeat = countSeat;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public int getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(int totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setTotal_price(int total_price) {
+        this.total_price = total_price;
     }
 }

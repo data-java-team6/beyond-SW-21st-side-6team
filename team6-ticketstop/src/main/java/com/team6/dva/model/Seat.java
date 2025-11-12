@@ -1,57 +1,41 @@
 package com.team6.dva.model;
 
 public class Seat {
-    private String seatId;
-    private String concertId;
-    private String seatNumber;
-    private int price;
-    private boolean isReserved;
 
-    public Seat(String seatId, String concertId, String seatNumber, int price) {
-        this.seatId = seatId;
-        this.concertId = concertId;
-        this.seatNumber = seatNumber;
-        this.price = price;
-        this.isReserved = false;
+    private int seat_id;
+    private String seat_name;
+    private int show_no;
+
+    public Seat() {
     }
 
-    public String getSeatId() {
-        return seatId;
+    public Seat(int seat_id, String seat_name, int show_no) {
+        this.seat_id = seat_id;
+        this.seat_name = seat_name;
+        this.show_no = show_no;
     }
 
-    public void setSeatId(String seatId) {
-        this.seatId = seatId;
+    public int getSeat_id() {
+        return seat_id;
     }
 
-    public String getConcertId() {
-        return concertId;
+    public void setSeat_id(int seat_id) {
+        this.seat_id = seat_id;
     }
 
-    public void setConcertId(String concertId) {
-        this.concertId = concertId;
+    public String getSeat_name() {
+        return seat_name;
     }
 
-    public String getSeatNumber() {
-        return seatNumber;
+    public void setSeat_name(String seat_name) {
+        this.seat_name = seat_name;
     }
 
-    public void setSeatNumber(String seatNumber) {
-        this.seatNumber = seatNumber;
+    public int getShow_no() {
+        return show_no;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public boolean isReserved() {
-        return isReserved;
-    }
-
-    public void setReserved(boolean reserved) {
-        isReserved = reserved;
+    public void setShow_no(int show_no) {
+        this.show_no = show_no;
     }
 }

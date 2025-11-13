@@ -10,9 +10,9 @@ public class Application {
         LoginMenu login = new LoginMenu();
         MainMenu mainMenu = new MainMenu();
 
-//        User loginUser = login.start();
         User user = new User();
         mainMenu.showMenu(user);
+//        User loginUser = login.start();
 
     }
 }

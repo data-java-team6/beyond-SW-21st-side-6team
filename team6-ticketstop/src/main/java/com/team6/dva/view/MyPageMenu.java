@@ -1,5 +1,6 @@
-package com.team6.dva.menu;
+package com.team6.dva.view;
 
+import com.team6.dva.controller.MyPageController;
 import com.team6.dva.model.User;
 import com.team6.dva.service.MyPageService;
 
@@ -10,7 +11,7 @@ public class MyPageMenu {
     private final User user = new User();
 
     private final Scanner sc = new Scanner(System.in);
-    private final MyPageService myPageService = new MyPageService();
+    private final MyPageController myPageController = new MyPageController();
 
     public void showMyPage() {
         int choice = 0;
@@ -35,12 +36,24 @@ public class MyPageMenu {
 
             switch (choice) {
                 case 1:
-                    myPageService.showDeposit(user);
+                    // 유저 ID 연결해서 그 ID와 일치하는 예치금 가져오기
+                    String de_menu = """
+                ╔════════════════════════════════╗
+                ║                                ║
+                ║          예치금 확인하기         ║
+                ║                                ║
+                ╚════════════════════════════════╝
+                """;
+                    int deposit = myPageController.showDeposit(user);
+                    System.out.println(de_menu);
+                    System.out.println("당신이 소유 하고 있는 예치금은 " + user.getDeposit() + "원 입니다.");
+
                     break;
                 case 2:
-                    myPageService.showMyConcert();
+                    myPageController.showMyConcert(user);
                     break;
                 case 3:
+                    System.out.println("마이페이지를 종료합니다.");
                     break;
                 default:
                     System.out.println("번호 잘못입력했어요");

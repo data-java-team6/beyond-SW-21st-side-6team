@@ -1,7 +1,7 @@
 package com.team6.dva.run;
 
-import com.team6.dva.menu.LoginMenu;
-import com.team6.dva.menu.MainMenu;
+import com.team6.dva.view.LoginMenu;
+import com.team6.dva.view.MainMenu;
 import com.team6.dva.model.User;
 
 public class Application {
@@ -11,8 +11,8 @@ public class Application {
         MainMenu mainMenu = new MainMenu();
 
         User user = new User();
-        mainMenu.showMenu(user);
-//        User loginUser = login.start();
+//        mainMenu.showMenu(user);
+        User loginUser = login.start();
 
     }
 }

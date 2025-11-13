@@ -20,7 +20,7 @@ public class ConcertController {
 
         try {
             while (rs.next()) {
-                System.out.println(rs.getString("show_name") + rs.getDate("show_date"));
+                System.out.println(rs.getString("show_name") + " | " + rs.getDate("show_date"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

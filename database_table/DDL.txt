@@ -1,0 +1,36 @@
+CREATE TABLE tbl_member
+(
+    member_no   INT AUTO_INCREMENT PRIMARY KEY COMMENT '회원식별번호',
+    member_id   VARCHAR(30)  NOT NULL UNIQUE COMMENT '아이디',
+    member_pw   VARCHAR(100) NOT NULL COMMENT '비밀번호',
+    balance     INT DEFAULT 0 COMMENT '예치금',
+    member_name VARCHAR(20)  NOT NULL COMMENT '이름'
+);
+
+CREATE TABLE tbl_show
+(
+    show_no   INT AUTO_INCREMENT PRIMARY KEY COMMENT '공연번호',
+    show_name VARCHAR(50) NOT NULL COMMENT '공연명',
+    show_info TEXT COMMENT '공연정보',
+    show_date DATE        NOT NULL COMMENT '공연날짜',
+    pay_start DATE        NOT NULL COMMENT '결제가능기간(시작)',
+    pay_end   DATE        NOT NULL COMMENT '결제가능기간(끝)'
+);
+
+CREATE TABLE tbl_seat
+(
+    seat_id   INT AUTO_INCREMENT PRIMARY KEY COMMENT '좌석ID',
+    seat_name VARCHAR(10) NOT NULL COMMENT '좌석명',
+    show_no   INT         NOT NULL COMMENT '공연번호',
+    FOREIGN KEY (show_no) REFERENCES tbl_show (show_no)
+);
+
+CREATE TABLE tbl_payment
+(
+    member_no   INT NOT NULL COMMENT '회원식별번호',
+    seat_id     INT NOT NULL COMMENT '좌석아이디',
+    total_price INT NOT NULL COMMENT '총금액',
+    PRIMARY KEY (member_no, seat_id),
+    FOREIGN KEY (member_no) REFERENCES tbl_member (member_no),
+    FOREIGN KEY (seat_id) REFERENCES tbl_seat (seat_id)
+);

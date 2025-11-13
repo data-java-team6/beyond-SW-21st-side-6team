@@ -1,4 +1,4 @@
-package com.team6.dva.menu;
+package com.team6.dva.view;
 
 import com.team6.dva.controller.ConcertController;
 import com.team6.dva.model.Concert;
@@ -15,8 +15,6 @@ public class ConcertMenu {
 
     public void showConcertList() {
 
-        String concertTitle = concert.getShow_name();
-        String concertDate = concert.getShow_date();
         String choiceConcert;
 
         String menu = """
@@ -39,16 +37,20 @@ public class ConcertMenu {
 
             rs = concertController.getConcertInfo(con, pstmt, rs);
 
+            System.out.println();
             System.out.print("원하는 공연 명을 입력해주세요 > ");
             choiceConcert = sc.nextLine();
 
-            if (choiceConcert.equals(concertTitle)) {
+            if (true
+                /*choiceConcert 와 디비의 공연명이 같으면*/) {
                 // 공연 상세 정보 보여주기
+
+
             } else {
-                System.out.println("공연 정보 없음");
+                System.out.println(choiceConcert + "의 공연 정보 없음");
             }
 
-        }while (true);
+        } while (true);
 
     }
 }

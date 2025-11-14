@@ -9,7 +9,7 @@ public class AuthController {
 
     private final UserService userService;
     private final Scanner sc;
-    private String id;
+    public static String id;
 
     public AuthController(UserService userService, Scanner sc) {
         this.userService = userService;
@@ -27,7 +27,7 @@ public class AuthController {
                 """;
         System.out.println(loginMenu);
         System.out.print("ID > ");
-        id = sc.nextLine(); // static 으로 만드릭 , 로그아웃은 null로 바꿔주기
+        id = sc.nextLine(); // static 으로 만들기 , 로그아웃은 null로 바꿔주기
         System.out.print("PW > ");
         pwd = sc.nextLine();
 

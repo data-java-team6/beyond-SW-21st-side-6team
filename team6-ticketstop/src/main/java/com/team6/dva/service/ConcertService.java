@@ -1,37 +1,29 @@
 package com.team6.dva.service;
 
-import com.team6.dva.repository.ConcertRepository;
+import com.team6.dva.common.Template;
+import com.team6.dva.model.Concert;
+import com.team6.dva.repository.ConcertMapper;
+import org.apache.ibatis.session.SqlSession;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Properties;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import static com.team6.dva.common.JDBCTemplate.getConnection;
+import static com.team6.dva.common.Template.getSqlSession;
 
 public class ConcertService {
 
 
-    public ResultSet getConcertInfo(Connection con, PreparedStatement pstmt, ResultSet rs) {
+    public void showSummaryInfo() {
+        SqlSession sqlSession = getSqlSession();
+        ConcertMapper mapper = sqlSession.getMapper(ConcertMapper.class);
 
-        con = getConnection();
-        Properties prop = new Properties();
-        ConcertRepository concertRepository = new ConcertRepository();
-        try {
-            prop.loadFromXML(new FileInputStream("src/main/resources/mapper/MemberMapper.xml"));
-            pstmt = con.prepareStatement(prop.getProperty("showConcert"));
-            rs = concertRepository.getConcertInfo(con, pstmt, rs);
+        List<Concert> conList = mapper.showSummaryInfo();
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        if(conList != null && !conList.isEmpty()) {
+            conList.forEach(con -> System.out.println(con.getShowName() +"   " + con.getShowDate()));
+        } else {
+            System.out.println("해당 정보 없음");
         }
-
-
-        return rs;
     }
 }

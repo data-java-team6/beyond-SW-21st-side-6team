@@ -4,70 +4,82 @@ import java.util.List;
 
 public class Concert {
 
-    private int show_no;
-    private String show_name;
-    private String show_info;
-    private String show_date;
-    private String pay_start;
-    private String pay_end;
+    private int showNo;
+    private String showName;
+    private String showInfo;
+    private String showDate;
+    private String payStart;
+    private String payEnd;
 
     public Concert() {
     }
 
-    public Concert(int show_no, String show_name, String show_info, String show_date, String pay_start, String pay_end) {
-        this.show_no = show_no;
-        this.show_name = show_name;
-        this.show_info = show_info;
-        this.show_date = show_date;
-        this.pay_start = pay_start;
-        this.pay_end = pay_end;
+    public Concert(int showNo, String showName, String showInfo, String showDate, String payStart, String payEnd) {
+        this.showNo = showNo;
+        this.showName = showName;
+        this.showInfo = showInfo;
+        this.showDate = showDate;
+        this.payStart = payStart;
+        this.payEnd = payEnd;
     }
 
-    public int getShow_no() {
-        return show_no;
+    public int getShowNo() {
+        return showNo;
     }
 
-    public void setShow_no(int show_no) {
-        this.show_no = show_no;
+    public void setShowNo(int showNo) {
+        this.showNo = showNo;
     }
 
-    public String getShow_name() {
-        return show_name;
+    public String getShowName() {
+        return showName;
     }
 
-    public void setShow_name(String show_name) {
-        this.show_name = show_name;
+    public void setShowName(String showName) {
+        this.showName = showName;
     }
 
-    public String getShow_info() {
-        return show_info;
+    public String getShowInfo() {
+        return showInfo;
     }
 
-    public void setShow_info(String show_info) {
-        this.show_info = show_info;
+    public void setShowInfo(String showInfo) {
+        this.showInfo = showInfo;
     }
 
-    public String getShow_date() {
-        return show_date;
+    public String getShowDate() {
+        return showDate;
     }
 
-    public void setShow_date(String show_date) {
-        this.show_date = show_date;
+    public void setShowDate(String showDate) {
+        this.showDate = showDate;
     }
 
-    public String getPay_start() {
-        return pay_start;
+    public String getPayStart() {
+        return payStart;
     }
 
-    public void setPay_start(String pay_start) {
-        this.pay_start = pay_start;
+    public void setPayStart(String payStart) {
+        this.payStart = payStart;
     }
 
-    public String getPay_end() {
-        return pay_end;
+    public String getPayEnd() {
+        return payEnd;
     }
 
-    public void setPay_end(String pay_end) {
-        this.pay_end = pay_end;
+    public void setPayEnd(String payEnd) {
+        this.payEnd = payEnd;
+    }
+
+    @Override
+    public String toString() {
+        return "Concert{" +
+                "showNo=" + showNo +
+                ", showName='" + showName + '\'' +
+                ", showInfo='" + showInfo + '\'' +
+                ", showDate='" + showDate + '\'' +
+                ", payStart='" + payStart + '\'' +
+                ", payEnd='" + payEnd + '\'' +
+                '}';
     }
 }

@@ -44,17 +44,17 @@ public class MyPageMenu {
                 ║                                ║
                 ╚════════════════════════════════╝
                 """;
-                    int deposit = myPageController.showDeposit(user);
+//                    int deposit = myPageController.showDeposit(user);
                     System.out.println(de_menu);
-                    System.out.println("당신이 소유 하고 있는 예치금은 " + user.getDeposit() + "원 입니다.");
+//                    System.out.println("당신이 소유 하고 있는 예치금은 " + user.getDeposit() + "원 입니다.");
 
                     break;
                 case 2:
-                    myPageController.showMyConcert(user);
+//                    myPageController.showMyConcert(user);
                     break;
                 case 3:
                     System.out.println("마이페이지를 종료합니다.");
-                    break;
+                    return;
                 default:
                     System.out.println("번호 잘못입력했어요");
                     System.out.print("선택 > ");

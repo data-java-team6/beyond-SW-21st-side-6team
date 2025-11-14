@@ -10,4 +10,16 @@
              , show_date
           FROM tbl_show
     </select>
+
+    <select id="showInfo" resultType="com.team6.dva.model.Concert">
+        SELECT
+               show_name
+             , show_date
+             , show_info
+             , price
+             , pay_start
+             , pay_end
+          FROM tbl_show
+        WHERE show_name LIKE CONCAT('%', #{ value }, '%')
+    </select>
 </mapper>

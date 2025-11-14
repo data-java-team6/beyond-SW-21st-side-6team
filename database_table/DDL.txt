@@ -1,3 +1,19 @@
+-- -------------------------
+-- 1. 기존 테이블 삭제
+-- -------------------------
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS tbl_payment;
+DROP TABLE IF EXISTS tbl_seat;
+DROP TABLE IF EXISTS tbl_show;
+DROP TABLE IF EXISTS tbl_member;
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- -------------------------
+-- 2. 테이블 재생성
+-- -------------------------
+
 CREATE TABLE tbl_member
 (
     member_no   INT AUTO_INCREMENT PRIMARY KEY COMMENT '회원식별번호',
@@ -14,7 +30,8 @@ CREATE TABLE tbl_show
     show_info TEXT COMMENT '공연정보',
     show_date DATE        NOT NULL COMMENT '공연날짜',
     pay_start DATE        NOT NULL COMMENT '결제가능기간(시작)',
-    pay_end   DATE        NOT NULL COMMENT '결제가능기간(끝)'
+    pay_end   DATE        NOT NULL COMMENT '결제가능기간(끝)',
+    price     INT         NOT NULL COMMENT '가격'
 );
 
 CREATE TABLE tbl_seat

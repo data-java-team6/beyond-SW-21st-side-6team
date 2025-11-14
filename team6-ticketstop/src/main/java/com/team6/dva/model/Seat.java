@@ -2,40 +2,49 @@ package com.team6.dva.model;
 
 public class Seat {
 
-    private int seat_id;
-    private String seat_name;
-    private int show_no;
+    private int seaId;
+    private String seatName;
+    private int showNo;
 
     public Seat() {
     }
 
-    public Seat(int seat_id, String seat_name, int show_no) {
-        this.seat_id = seat_id;
-        this.seat_name = seat_name;
-        this.show_no = show_no;
+    public Seat(int seaId, String seatName, int showNo) {
+        this.seaId = seaId;
+        this.seatName = seatName;
+        this.showNo = showNo;
     }
 
-    public int getSeat_id() {
-        return seat_id;
+    public int getSeaId() {
+        return seaId;
     }
 
-    public void setSeat_id(int seat_id) {
-        this.seat_id = seat_id;
+    public void setSeaId(int seaId) {
+        this.seaId = seaId;
     }
 
-    public String getSeat_name() {
-        return seat_name;
+    public String getSeatName() {
+        return seatName;
     }
 
-    public void setSeat_name(String seat_name) {
-        this.seat_name = seat_name;
+    public void setSeatName(String seatName) {
+        this.seatName = seatName;
     }
 
-    public int getShow_no() {
-        return show_no;
+    public int getShowNo() {
+        return showNo;
     }
 
-    public void setShow_no(int show_no) {
-        this.show_no = show_no;
+    public void setShowNo(int showNo) {
+        this.showNo = showNo;
+    }
+
+    @Override
+    public String toString() {
+        return "Seat{" +
+                "seaId=" + seaId +
+                ", seatName='" + seatName + '\'' +
+                ", showNo=" + showNo +
+                '}';
     }
 }

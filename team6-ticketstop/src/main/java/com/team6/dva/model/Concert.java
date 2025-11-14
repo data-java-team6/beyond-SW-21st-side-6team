@@ -10,17 +10,19 @@ public class Concert {
     private String showDate;
     private String payStart;
     private String payEnd;
+    private int price;
 
     public Concert() {
     }
 
-    public Concert(int showNo, String showName, String showInfo, String showDate, String payStart, String payEnd) {
+    public Concert(int showNo, String showName, String showInfo, String showDate, String payStart, String payEnd, int price) {
         this.showNo = showNo;
         this.showName = showName;
         this.showInfo = showInfo;
         this.showDate = showDate;
         this.payStart = payStart;
         this.payEnd = payEnd;
+        this.price = price;
     }
 
     public int getShowNo() {
@@ -71,6 +73,14 @@ public class Concert {
         this.payEnd = payEnd;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return "Concert{" +
@@ -80,6 +90,7 @@ public class Concert {
                 ", showDate='" + showDate + '\'' +
                 ", payStart='" + payStart + '\'' +
                 ", payEnd='" + payEnd + '\'' +
+                ", price='" + price + '\'' +
                 '}';
     }
 }

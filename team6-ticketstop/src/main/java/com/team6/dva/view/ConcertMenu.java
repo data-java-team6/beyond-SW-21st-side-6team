@@ -1,5 +1,6 @@
 package com.team6.dva.view;
 
+import com.team6.dva.common.SearchCriteria;
 import com.team6.dva.controller.ConcertController;
 import com.team6.dva.model.Concert;
 import com.team6.dva.service.ConcertService;
@@ -12,12 +13,12 @@ import java.util.Scanner;
 public class ConcertMenu {
 
     private final Concert concert = new Concert();
-    private final Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
+    static String choiceConcert;
     private final ConcertService concertService = new ConcertService();
 
     public void showConcertList() {
 
-        String choiceConcert;
 
         String menu = """
                 ╔════════════════════════════════╗
@@ -33,13 +34,11 @@ public class ConcertMenu {
             // 목록 보여주기
             concertService.showSummaryInfo();
             System.out.println();
-            System.out.print("원하는 공연 명을 입력해주세요 > ");
-            choiceConcert = sc.nextLine();
 
             if (true
                 /*choiceConcert 와 디비의 공연명이 같으면*/) {
                 // 공연 상세 정보 보여주기
-
+                concertService.showInfo(inputSearchCriteria());
 
             } else {
                 System.out.println(choiceConcert + "의 공연 정보 없음");
@@ -48,4 +47,14 @@ public class ConcertMenu {
         } while (true);
 
     }
+
+    private static SearchCriteria inputSearchCriteria() {
+
+        System.out.print("원하는 공연 명을 입력해주세요 > ");
+        choiceConcert = sc.nextLine();
+
+        return new SearchCriteria(choiceConcert);
+    }
+
+
 }

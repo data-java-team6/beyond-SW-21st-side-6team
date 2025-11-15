@@ -9,6 +9,7 @@
                show_name
              , show_date
           FROM tbl_show
+         ORDER BY show_date
     </select>
 
     <select id="showInfo" resultType="com.team6.dva.model.Concert">
@@ -16,10 +17,34 @@
                show_name
              , show_date
              , show_info
-             , price
              , pay_start
              , pay_end
+             , price
           FROM tbl_show
         WHERE show_name LIKE CONCAT('%', #{ value }, '%')
+    </select>
+    <select id="selectConcertByName" resultType="com.team6.dva.model.Concert">
+        SELECT
+               show_no
+             , show_name
+             , show_date
+             , show_info
+             , pay_start
+             , pay_end
+             , price
+          FROM tbl_show
+         WHERE show_name = #{showName}
+    </select>
+    <select id="selectConcertById" resultType="com.team6.dva.model.Concert">
+        SELECT
+               show_no
+             , show_name
+             , show_date
+             , show_info
+             , pay_start
+             , pay_end
+             , price
+             FROM tbl_show
+             WHERE show_no = #{showNo}
     </select>
 </mapper>

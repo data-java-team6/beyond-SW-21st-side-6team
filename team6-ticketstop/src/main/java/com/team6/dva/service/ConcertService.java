@@ -26,9 +26,10 @@ public class ConcertService {
         } else {
             System.out.println("해당 정보 없음");
         }
+        sqlSession.close();
     }
 
-    public void showInfo(SearchCriteria searchCriteria) {
+    public boolean showInfo(SearchCriteria searchCriteria) {
 
         SqlSession sqlSession = getSqlSession();
         ConcertMapper mapper = sqlSession.getMapper(ConcertMapper.class);
@@ -36,12 +37,18 @@ public class ConcertService {
         List<Concert> conList = mapper.showInfo(searchCriteria);
         if(conList != null && !conList.isEmpty()) {
             conList.forEach(con -> System.out.println(
-                    con.getShowName() + "\n" + con.getShowDate() + "\n"
-                            + con.getShowInfo() + " " + con.getPrice() + "\n" + con.getPayStart() + " ~ " + con.getPayEnd()));
-
+                            "\n" +
+                            "공연명 : " + con.getShowName() + "\n" +
+                            "공연날짜 : " + con.getShowDate() + "\n" +
+                            "공연 내용 : " + con.getShowInfo() + "\n" +
+                            "공연 예약 가능 기간 : " + con.getPayStart() + " ~ " + con.getPayEnd() + "\n" +
+                            "공연 가격 : " + con.getPrice()));
+            sqlSession.close();
+            return true;
         } else {
             System.out.println("조회할 내용이 없습니다.");
+            sqlSession.close();
+            return false;
         }
-        sqlSession.close();
     }
 }

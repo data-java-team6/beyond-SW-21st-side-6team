@@ -51,3 +51,9 @@ CREATE TABLE tbl_payment
     FOREIGN KEY (member_no) REFERENCES tbl_member (member_no),
     FOREIGN KEY (seat_id) REFERENCES tbl_seat (seat_id)
 );
+
+ALTER TABLE tbl_seat
+    ADD COLUMN is_reserved BOOLEAN DEFAULT FALSE NOT NULL;
+
+UPDATE tbl_seat
+SET is_reserved = FALSE;

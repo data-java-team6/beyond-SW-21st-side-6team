@@ -10,4 +10,8 @@ public interface ConcertMapper {
     List<Concert> showSummaryInfo();
 
     List<Concert> showInfo(SearchCriteria searchCriteria);
+
+    Concert selectConcertByName(String showName);
+
+    Concert selectConcertById(int showNo);
 }

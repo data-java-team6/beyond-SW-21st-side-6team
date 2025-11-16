@@ -13,7 +13,7 @@
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="dvadb@localhost" uuid="854e5e6c-f7e6-47b1-80cd-f7fe596654a0">
+    <data-source source="LOCAL" name="dvadb@localhost" uuid="b47baf18-b670-4892-8f7a-4cbecb92bee8">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>

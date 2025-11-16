@@ -61,6 +61,7 @@ public class MyPageMenu {
     }
 
     private String inputSearchDeposit() {
+
         return AuthController.id;
     }
 

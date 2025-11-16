@@ -6,9 +6,19 @@ import java.util.Scanner;
 
 public class MainMenu {
 
+
+    private final User loginUser;
     private final MyPageMenu myPageMenu = new MyPageMenu();
     private final ConcertMenu concertMenu = new ConcertMenu();
     private final Scanner sc = new Scanner(System.in);
+
+    public MainMenu(User loginUser) {
+        this.loginUser = loginUser;
+    }
+
+    public void start() {
+        showMenu(loginUser);
+    }
 
     public void showMenu(User user) {
         int choice;

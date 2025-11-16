@@ -32,8 +32,22 @@ public class AuthController {
         pwd = sc.nextLine();
 
         // ID, PW 회원 테이블에 존재, 일치 시 메인 메뉴로 돌아가기
+        /*UserService-> UserMampper -> DB조회 -> 성공 시 User반환
+         * -> 성공시 MainMenu로 이동하는 로직*/
 
-        return null;
+        User loginUser = userService.login(id, pwd);
+
+        if (loginUser == null) {
+            System.out.println("\n 일치하는 회원이 없습니다. 다시 입력해 주세요");
+            return null;
+        }
+
+        System.out.println("\n 로그인 성공");
+        System.out.println(loginUser.getMemberName() + "님 안녕하세요");
+        System.out.println("현재 예치금: " +loginUser.getDeposit() + "원 입니다.\n");
+
+        return loginUser;
+
     }
 
     public void register() {

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/beyond-SW-21st-side-6team.iml" filepath="$PROJECT_DIR$/.idea/beyond-SW-21st-side-6team.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/team6-ticketstop.iml" filepath="$PROJECT_DIR$/.idea/modules/team6-ticketstop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/team6-ticketstop.main.iml" filepath="$PROJECT_DIR$/.idea/modules/team6-ticketstop.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/team6-ticketstop.test.iml" filepath="$PROJECT_DIR$/.idea/modules/team6-ticketstop.test.iml" />
     </modules>
   </component>
 </project>

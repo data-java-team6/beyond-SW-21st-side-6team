@@ -2,7 +2,9 @@
 <project version="4">
   <component name="DataSourcePerFileMappings">
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/7ba6a890-ceb1-4180-8cf0-23d24de39e0f/console.sql" value="7ba6a890-ceb1-4180-8cf0-23d24de39e0f" />
+feature/11-deposit
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/b47baf18-b670-4892-8f7a-4cbecb92bee8/console.sql" value="b47baf18-b670-4892-8f7a-4cbecb92bee8" />
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/b47baf18-b670-4892-8f7a-4cbecb92bee8/console_1.sql" value="b47baf18-b670-4892-8f7a-4cbecb92bee8" />
+main
   </component>
 </project>

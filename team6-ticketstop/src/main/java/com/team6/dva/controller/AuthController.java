@@ -10,6 +10,8 @@ public class AuthController {
     private final UserService userService;
     private final Scanner sc;
     public static String id;
+    // 로그인은 구현이 안되어있는데 확인 하고 싶을떄
+//    public static String id = "user01"
 
     public AuthController(UserService userService, Scanner sc) {
         this.userService = userService;
@@ -46,7 +48,7 @@ public class AuthController {
         String registerMenu = """
                 ╔════════════════════════════════╗
                 ║                                ║
-                ║            회원가입             ║
+                ║            회원가입              ║
                 ║                                ║
                 ╚════════════════════════════════╝
                 """;

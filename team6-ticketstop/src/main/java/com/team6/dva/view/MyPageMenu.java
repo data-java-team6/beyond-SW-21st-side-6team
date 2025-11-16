@@ -1,5 +1,6 @@
 package com.team6.dva.view;
 
+import com.team6.dva.controller.AuthController;
 import com.team6.dva.controller.MyPageController;
 import com.team6.dva.model.User;
 import com.team6.dva.service.MyPageService;
@@ -11,18 +12,18 @@ public class MyPageMenu {
     private final User user = new User();
 
     private final Scanner sc = new Scanner(System.in);
-    private final MyPageController myPageController = new MyPageController();
+    private final MyPageService myPageService = new MyPageService();
 
     public void showMyPage() {
         int choice = 0;
         String menu = """
                 ╔════════════════════════════════╗
                 ║                                ║
-                ║           마이 페이지           ║
+                ║           마이 페이지            ║
                 ║                                ║
-                ║        1. 예치금 확인하기        ║
-                ║      2. 결제 내역 확인하기       ║
-                ║           3. 돌아가기           ║
+                ║        1. 예치금 확인하기         ║
+                ║      2. 결제 내역 확인하기        ║
+                ║           3. 돌아가기            ║
                 ║                                ║
                 ║                                ║
                 ╚════════════════════════════════╝
@@ -40,14 +41,11 @@ public class MyPageMenu {
                     String de_menu = """
                 ╔════════════════════════════════╗
                 ║                                ║
-                ║          예치금 확인하기         ║
+                ║          예치금 확인하기          ║
                 ║                                ║
                 ╚════════════════════════════════╝
                 """;
-//                    int deposit = myPageController.showDeposit(user);
-                    System.out.println(de_menu);
-//                    System.out.println("당신이 소유 하고 있는 예치금은 " + user.getDeposit() + "원 입니다.");
-
+                    myPageService.showMyDeposit(inputSearchDeposit());
                     break;
                 case 2:
 //                    myPageController.showMyConcert(user);
@@ -60,6 +58,11 @@ public class MyPageMenu {
                     System.out.print("선택 > ");
             }
         } while (choice != 3);
+    }
+
+    private String inputSearchDeposit() {
+
+        return AuthController.id;
     }
 
 }

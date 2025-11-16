@@ -2,6 +2,7 @@ package com.team6.dva.view;
 
 import com.team6.dva.controller.ConcertController;
 import com.team6.dva.model.Concert;
+import com.team6.dva.model.Seat;
 
 import java.util.List;
 import java.util.Scanner;
@@ -9,18 +10,22 @@ import java.util.Scanner;
 public class ConcertMenu {
 
     private final ConcertController concertController;
+    private final SeatMenu seatMenu;
 
     static Scanner sc = new Scanner(System.in);
-    static int selectedShowNo;
+    public static int selectedShowNo;
 
-    public ConcertMenu() {this.concertController = new ConcertController();}
+    // public static String selectedShowName;
+
+    public ConcertMenu() {this.concertController = new ConcertController();
+    this.seatMenu = new SeatMenu();}
 
     public void showConcertList() {
         String menu = """
                 ╔════════════════════════════════╗
-                ║                                ║
-                ║       밴드 / 가수 공연보기       ║
-                ║                                ║
+                                                 
+                        밴드 / 가수 공연보기       
+                                                 
                 ╚════════════════════════════════╝
                 """;
         while (true) {
@@ -40,13 +45,15 @@ public class ConcertMenu {
             }
 
             selectedShowNo = concert.getShowNo();
+            // selectedShowName = concert.getShowName();
             boolean exit = true;
             while (exit) {
+                System.out.println();
                 System.out.println("결제 하시겠습니까? (Y/N) > ");
                 String answer = sc.nextLine().trim().toUpperCase();
 
                 switch (answer) {
-                    case "Y": exit = false; break;
+                    case "Y": SeatMenu seatMenu = new SeatMenu(); seatMenu.showSeat(); exit = false; break;
                     case "N": System.out.println("공연 목록으로 돌아갑니다."); exit = false; break;
                     default:
                         System.out.println("잘못된 입력입니다. 다시 입력해주세요."); break;

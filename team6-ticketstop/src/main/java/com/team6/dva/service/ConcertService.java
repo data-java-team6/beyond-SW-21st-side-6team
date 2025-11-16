@@ -21,7 +21,6 @@ public class ConcertService {
         return concertList;
     }
 
-    // 키워드로 공연 검색 (LIKE 검색)
     public List<Concert> selectConcertByShowName(SearchCriteria searchCriteria) {
         SqlSession sqlSession = getSqlSession();
         ConcertMapper mapper = sqlSession.getMapper(ConcertMapper.class);
@@ -30,27 +29,5 @@ public class ConcertService {
 
         sqlSession.close();
         return concertList;
-    }
-
-    // 공연명으로 정확히 조회
-    public Concert selectConcertByName(String showName) {
-        SqlSession sqlSession = getSqlSession();
-        ConcertMapper mapper = sqlSession.getMapper(ConcertMapper.class);
-
-        Concert concert = mapper.selectConcertByName(showName);
-
-        sqlSession.close();
-        return concert;
-    }
-
-    // ID로 공연 조회
-    public Concert selectConcertById(int showNo) {
-        SqlSession sqlSession = getSqlSession();
-        ConcertMapper mapper = sqlSession.getMapper(ConcertMapper.class);
-
-        Concert concert = mapper.selectConcertById(showNo);
-
-        sqlSession.close();
-        return concert;
     }
 }

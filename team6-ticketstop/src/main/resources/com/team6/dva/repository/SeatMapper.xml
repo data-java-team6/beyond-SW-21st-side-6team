@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team6.dva.repository.SeatMapper">
+    <select id="selectSeatsByShowNo" resultType="com.team6.dva.model.Seat">
+        SELECT
+               seat_id
+             , seat_name
+             , show_no
+             , is_reserved
+          FROM tbl_seat
+         WHERE show_no = #{showNo}
+         ORDER BY
+               SUBSTRING(seat_name, 1, 1),
+               CAST(SUBSTRING(seat_name, 2) AS UNSIGNED)
+    </select>
+
+    <select id="selectSeatByNameAndShowNo" resultType="com.team6.dva.model.Seat">
+        SELECT
+               seat_id
+             , seat_name
+             , show_no
+             , is_reserved
+          FROM tbl_seat
+         WHERE show_no = #{showNo}
+           AND seat_name = #{seatName}
+    </select>
+
+    <update id="updateSeatReserved">
+        UPDATE
+               tbl_seat
+           SET is_reserved = TRUE
+         WHERE seat_id = #{seatId}
+           AND is_reserved = FALSE
+    </update>
+
+</mapper>

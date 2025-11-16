@@ -37,16 +37,4 @@ public class ConcertController {
             return null;
         }
     }
-
-//    public Concert selectConcertById(int showNo) {
-//        Concert concert = concertService.selectConcertById(showNo);
-//
-//        if (concert != null) {
-//            return concert;
-//        } else {
-//            ConcertMenu.printErrorMessage("selectOne");
-//            return null;
-//        }
-//    }
-
 }

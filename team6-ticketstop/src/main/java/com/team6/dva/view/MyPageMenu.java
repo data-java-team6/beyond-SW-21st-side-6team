@@ -48,7 +48,7 @@ public class MyPageMenu {
                     myPageService.showMyDeposit(inputSearchDeposit());
                     break;
                 case 2:
-//                    myPageController.showMyConcert(user);
+                    myPageService.showMyConcert(inputSearchDeposit());
                     break;
                 case 3:
                     System.out.println("마이페이지를 종료합니다.");

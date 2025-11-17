@@ -3,6 +3,7 @@ package com.team6.dva.view;
 import com.team6.dva.controller.ConcertController;
 import com.team6.dva.model.Concert;
 import com.team6.dva.model.Seat;
+import com.team6.dva.model.User;
 
 import java.util.List;
 import java.util.Scanner;
@@ -18,7 +19,7 @@ public class ConcertMenu {
     public ConcertMenu() {this.concertController = new ConcertController();
     this.seatMenu = new SeatMenu();}
 
-    public void showConcertList() {
+    public void showConcertList(User loginUser) {
         String menu = """
                 ╔════════════════════════════════╗
                                                   

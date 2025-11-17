@@ -13,6 +13,7 @@ public class MainMenu {
     private final User loginUser;
 
     public MainMenu(User loginUser) {
+
         this.loginUser = loginUser;
     }
 
@@ -20,12 +21,12 @@ public class MainMenu {
         int choice;
         String menu = """
                 ╔════════════════════════════════╗
-                                                
+                                                  
                            Ticket Stop          
                                                 
                            1. 마이페이지          
                        2. 밴드 / 가수 공연보기     
-                        3. 로그아웃 및 종료        
+                            3. 로그아웃        
                                                 
                                                 
                 ╚════════════════════════════════╝

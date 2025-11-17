@@ -6,8 +6,12 @@ public class Payment {
     private int seatId;
     private int totalPrice;
 
-    public Payment() {
-    }
+    // ★ 조회용 필드 추가
+    private String showName;
+    private String showDate;
+    private String seatName;
+
+    public Payment() {}
 
     public Payment(int memberNo, int seatId, int totalPrice) {
         this.memberNo = memberNo;
@@ -15,28 +19,34 @@ public class Payment {
         this.totalPrice = totalPrice;
     }
 
-    public int getMemberNo() {
-        return memberNo;
+    // --- getter / setter 원래 있던 거 + 아래 3개 추가 ---
+
+    public String getShowName() {
+        return showName;
     }
 
-    public void setMemberNo(int memberNo) {
-        this.memberNo = memberNo;
+    public void setShowName(String showName) {
+        this.showName = showName;
     }
 
-    public int getSeatId() {
-        return seatId;
+    public String getShowDate() {
+        return showDate;
     }
 
-    public void setSeatId(int seatId) {
-        this.seatId = seatId;
+    public void setShowDate(String showDate) {
+        this.showDate = showDate;
+    }
+
+    public String getSeatName() {
+        return seatName;
+    }
+
+    public void setSeatName(String seatName) {
+        this.seatName = seatName;
     }
 
     public int getTotalPrice() {
         return totalPrice;
-    }
-
-    public void setTotalPrice(int totalPrice) {
-        this.totalPrice = totalPrice;
     }
 
     @Override
@@ -45,6 +55,10 @@ public class Payment {
                 "memberNo=" + memberNo +
                 ", seatId=" + seatId +
                 ", totalPrice=" + totalPrice +
+                ", showName='" + showName + '\'' +
+                ", showDate='" + showDate + '\'' +
+                ", seatName='" + seatName + '\'' +
                 '}';
     }
+
 }

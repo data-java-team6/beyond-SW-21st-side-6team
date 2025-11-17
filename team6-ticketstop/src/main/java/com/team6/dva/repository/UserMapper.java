@@ -1,7 +1,10 @@
 package com.team6.dva.repository;
 
+import com.team6.dva.model.Payment;
 import com.team6.dva.model.User;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UserMapper {
 
@@ -15,4 +18,8 @@ public interface UserMapper {
 
     // ⭐ 회원가입
     int insertUser(User user);
+
+    User selectUserById(String memberId);
+
+    List<Payment> showMyConcert(@Param("memberId") String memberId);
 }

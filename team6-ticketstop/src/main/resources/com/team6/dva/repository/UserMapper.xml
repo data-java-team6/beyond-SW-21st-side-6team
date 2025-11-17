@@ -39,4 +39,30 @@
         (#{ memberId }, #{ memberPw }, #{ memberName }, #{ balance })
     </insert>
 
+    <select id="selectUserById" resultType="com.team6.dva.model.User">
+        SELECT
+        member_no
+        , member_id
+        , member_pw
+        , balance
+        , member_name
+        FROM tbl_member
+        WHERE member_id = #{memberId}
+    </select>
+
+    <select id="showMyConcert"
+            parameterType="string"
+            resultType="com.team6.dva.model.Payment">
+        SELECT
+        sh.show_name    AS showName,
+        sh.show_date    AS showDate,
+        s.seat_name     AS seatName,
+        p.total_price   AS totalPrice
+        FROM tbl_payment p
+        JOIN tbl_member m ON p.member_no = m.member_no
+        JOIN tbl_seat   s ON p.seat_id   = s.seat_id
+        JOIN tbl_show  sh ON s.show_no   = sh.show_no   <!-- 컬럼명이 show_id면 여기만 바꾸기 -->
+        WHERE m.member_id = #{memberId}            <!-- ② WHERE 나중에 -->
+    </select>
+
 </mapper>

@@ -19,12 +19,4 @@ public class SeatController {
     public Seat getSeatByNameAndShowNo(int showNo, String seatName) {
         return seatService.selectSeatByNameAndShowNo(showNo, seatName);
     }
-
-    public boolean reserveSeat(int seatId) {
-        return seatService.reserveSeat(seatId);
-    }
-
-    public boolean releaseSeats(List<Integer> seatIds) {
-        return seatService.reserveSeats(seatIds);
-    }
 }

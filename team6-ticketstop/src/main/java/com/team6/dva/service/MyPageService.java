@@ -17,8 +17,8 @@ public class MyPageService {
         SqlSession sqlSession = getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
-        int deposit = mapper.showMyDeposit(id);
-        System.out.println("당신이 소유 하고 있는 예치금은 " + deposit + "원 입니다.");
+        //int deposit = mapper.showMyDeposit(id);
+       // System.out.println("당신이 소유 하고 있는 예치금은 " + deposit + "원 입니다.");
 
         sqlSession.close();
 

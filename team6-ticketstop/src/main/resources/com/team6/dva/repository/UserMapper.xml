@@ -4,11 +4,39 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.team6.dva.repository.UserMapper">
 
-    <select id="showMyDeposit" resultType="int">
+    <!-- 로그인 -->
+    <select id="login" resultType="com.team6.dva.model.User">
         SELECT
-               balance
-          FROM tbl_member
-         WHERE member_id = #{ memberId }
+        member_no     AS memberNo,
+        member_id     AS memberId,
+        member_pw     AS memberPw,
+        balance       AS balance,
+        member_name   AS memberName
+        FROM tbl_member
+        WHERE member_id = #{ id }
+        AND member_pw = #{ pw }
     </select>
-    
+
+    <!-- 예치금 조회 -->
+    <select id="showMyDeposit" resultType="int">
+        SELECT balance
+        FROM tbl_member
+        WHERE member_id = #{ memberId }
+    </select>
+
+    <!-- ID 중복 체크 -->
+    <select id="checkDuplicatedId" resultType="int">
+        SELECT COUNT(*)
+        FROM tbl_member
+        WHERE member_id = #{ memberId }
+    </select>
+
+    <!-- 회원 가입 -->
+    <insert id="insertUser">
+        INSERT INTO tbl_member
+        (member_id, member_pw, member_name, balance)
+        VALUES
+        (#{ memberId }, #{ memberPw }, #{ memberName }, #{ balance })
+    </insert>
+
 </mapper>

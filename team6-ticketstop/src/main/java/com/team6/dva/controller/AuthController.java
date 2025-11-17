@@ -18,22 +18,32 @@ public class AuthController {
 
     public User login() {
         String pwd;
-        String loginMenu = """
+        System.out.println("""
                 ╔════════════════════════════════╗
                 ║                                ║
                 ║             로그인              ║
                 ║                                ║
                 ╚════════════════════════════════╝
-                """;
-        System.out.println(loginMenu);
+                """);
+
         System.out.print("ID > ");
-        id = sc.nextLine(); // static 으로 만들기 , 로그아웃은 null로 바꿔주기
+        id = sc.nextLine();
+
         System.out.print("PW > ");
         pwd = sc.nextLine();
 
-        // ID, PW 회원 테이블에 존재, 일치 시 메인 메뉴로 돌아가기
+        User loginUser = userService.login(id, pwd);
 
-        return null;
+        if (loginUser == null) {
+            System.out.println("\n일치하는 회원이 없습니다. 다시 입력해주세요.\n");
+            return null;
+        }
+
+        System.out.println("\n로그인 성공!");
+        System.out.println(loginUser.getMemberName() + "님 환영합니다!");
+        System.out.println("현재 예치금: " + loginUser.getBalance() + "원\n");
+
+        return loginUser;
     }
 
     public void register() {
@@ -43,29 +53,47 @@ public class AuthController {
         String userName;
         int deposit;
 
-        String registerMenu = """
+        System.out.println("""
                 ╔════════════════════════════════╗
                 ║                                ║
                 ║            회원가입             ║
                 ║                                ║
                 ╚════════════════════════════════╝
-                """;
-        System.out.println(registerMenu);
+                """);
+
         System.out.print("ID > ");
         id = sc.nextLine();
-        // 데이터 아이디 비교
+
         System.out.print("PW > ");
         pwd = sc.nextLine();
+
         System.out.print("PW 확인 > ");
         pwd_chk = sc.nextLine();
-        // 비밀번호 비교 pwd, pwd_chk
+
+        if (!pwd.equals(pwd_chk)) {
+            System.out.println("\n비밀번호가 일치하지 않습니다!\n");
+            return;
+        }
+
         System.out.print("이름 > ");
         userName = sc.nextLine();
+
         System.out.print("예치금 > ");
         deposit = sc.nextInt();
         sc.nextLine();
 
-        // 모두 들어가 있고, ID, Pw 조건 달성시 화원 가입 완료
-        // LoginMenu로 들어가기
+        User user = new User();
+        user.setMemberId(id);
+        user.setMemberPw(pwd);
+        user.setMemberName(userName);
+        user.setBalance(deposit);
+
+        boolean success = userService.registerUser(user);
+
+        if (success) {
+            System.out.println("\n회원가입이 완료되었습니다\n");
+        } else {
+            System.out.println("\n이미 존재하는 ID입니다.\n");
+        }
     }
 }

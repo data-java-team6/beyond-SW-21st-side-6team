@@ -13,7 +13,7 @@ public class MyPageMenu {
     private final Scanner sc = new Scanner(System.in);
     private final MyPageService myPageService = new MyPageService();
 
-    public void showMyPage() {
+    public void showMyPage(User loginUser) {
         int choice = 0;
         String menu = """
                 ╔════════════════════════════════╗
@@ -61,6 +61,7 @@ public class MyPageMenu {
     }
 
     private String inputSearchDeposit() {
+
         return AuthController.id;
     }
 

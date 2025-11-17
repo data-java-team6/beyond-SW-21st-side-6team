@@ -19,9 +19,9 @@ public class ConcertMenu {
     public void showConcertList(User loginUser) {
         String menu = """
                 ╔════════════════════════════════╗
-                ║                                ║
-                ║       밴드 / 가수 공연보기       ║
-                ║                                ║
+                                                  
+                        밴드 / 가수 공연보기        
+                                                  
                 ╚════════════════════════════════╝
                 """;
         while (true) {

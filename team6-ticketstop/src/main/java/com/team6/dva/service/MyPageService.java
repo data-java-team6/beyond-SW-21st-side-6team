@@ -32,9 +32,9 @@ public class MyPageService {
         // UserRepository에서 들고오기
         String menu = """
                 ╔════════════════════════════════╗
-                                                  
+                
                          결제 내역 확인하기          
-                                                  
+                
                 ╚════════════════════════════════╝
                 """;
 
@@ -52,7 +52,7 @@ public class MyPageService {
             }
 
             String headerFormat = "%-4s | %-15s | %-10s | %-5s | %-8s%n";
-            String rowFormat    = "%-4d | %-15s | %-10s | %-5s | %,8d원%n";
+            String rowFormat = "%-4d | %-15s | %-10s | %-5s | %,8d원%n";
 
 // 1. 헤더 먼저 만들기
             String header = String.format(

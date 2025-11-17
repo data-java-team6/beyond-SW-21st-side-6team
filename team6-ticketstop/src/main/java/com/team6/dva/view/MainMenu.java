@@ -10,7 +10,13 @@ public class MainMenu {
     private final ConcertMenu concertMenu = new ConcertMenu();
     private final Scanner sc = new Scanner(System.in);
 
-    public void showMenu(User user) {
+    private final User loginUser;
+
+    public MainMenu(User loginUser) {
+        this.loginUser = loginUser;
+    }
+
+    public void showMenu() {
         int choice;
         String menu = """
                 ╔════════════════════════════════╗
@@ -32,10 +38,10 @@ public class MainMenu {
 
             switch (choice) {
                 case 1:
-                    myPageMenu.showMyPage();
+                    myPageMenu.showMyPage(loginUser);
                     break;
                 case 2:
-                    concertMenu.showConcertList();
+                    concertMenu.showConcertList(loginUser);
                     break;
                 case 3:
                     System.out.println("로그아웃 합니다. 안녕히가세요👋");

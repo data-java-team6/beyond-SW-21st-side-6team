@@ -1,11 +1,12 @@
 package com.team6.dva.controller;
 
-import com.team6.dva.common.SearchCriteria;
-import com.team6.dva.model.Concert;
 import com.team6.dva.service.ConcertService;
-import com.team6.dva.view.ConcertMenu;
 
-import java.util.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 public class ConcertController {
 
@@ -33,7 +34,18 @@ public class ConcertController {
             ConcertMenu.printConcert(concert);
             return concert;
         } else {
-            ConcertMenu.printErrorMessage("noSelect");
+            System.out.println("조회할 내용이 없습니다.");
+            return null;
+        }
+    }
+
+    public Concert selectConcertById(int showNo) {
+        Concert concert = concertService.selectConcertById(showNo);
+
+        if (concert != null) {
+            return concert;
+        } else {
+            ConcertMenu.printErrorMessage("selectOne");
             return null;
         }
     }

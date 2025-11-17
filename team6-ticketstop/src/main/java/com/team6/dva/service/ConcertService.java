@@ -30,6 +30,15 @@ public class ConcertService {
         sqlSession.close();
         return concertList;
     }
+    public Concert selectConcertByName(String showName) {
+        SqlSession sqlSession = getSqlSession();
+        ConcertMapper mapper = sqlSession.getMapper(ConcertMapper.class);
+
+        Concert concert = mapper.selectConcertByName(showName);
+
+        sqlSession.close();
+        return concert;
+    }
 
     public Concert selectConcertById(int showNo) {
         SqlSession sqlSession = getSqlSession();

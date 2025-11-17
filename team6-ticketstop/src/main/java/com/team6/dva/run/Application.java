@@ -8,11 +8,9 @@ public class Application {
 
     public static void main(String[] args) {
         LoginMenu login = new LoginMenu();
-        MainMenu mainMenu = new MainMenu();
 
         User user = new User();
-        mainMenu.showMenu(user);
-//        User loginUser = login.start();
+        User loginUser = login.start();
 
     }
 }

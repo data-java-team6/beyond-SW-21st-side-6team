@@ -11,6 +11,7 @@ public class LoginMenu {
     private final UserService userService = new UserService();
     private final Scanner sc = new Scanner(System.in);
     private final AuthController authController = new AuthController(userService, sc);
+
     public User start() {
         int choice;
         String menu = """
@@ -32,11 +33,17 @@ public class LoginMenu {
             sc.nextLine();
 
             switch (choice) {
-                case 1: authController.login(); break;
-                case 2: authController.register(); break;
-                case 3: break;
+                case 1: loginSubMenu();
+                        break;
+
+                case 2: registerSubMenu();
+                        break;
+
+                case 3:
+                    System.out.println("프로그램을 종료합니다");
+                    break;
                 default:
-                    System.out.println("번호 잘못입력했어요");
+                    System.out.println("번호를 잘못입력하셨습니다.");
                     System.out.print("선택 > ");
             }
 
@@ -44,4 +51,23 @@ public class LoginMenu {
 
         return null;
     }
+
+    private void loginSubMenu() {
+        User loginUser = authController.login();
+        if (loginUser == null) {
+            System.out.println("일치하는 회원이 없습니다.\n");
+            return;
+        }
+
+        System.out.println("로그인 성공. 메인페이지로 이동합니다.\n");
+
+        MainMenu mainMenu = new MainMenu(loginUser);
+        mainMenu.showMenu();
+
+    }
+
+    private void registerSubMenu() {
+        authController.register();
+    }
+
 }

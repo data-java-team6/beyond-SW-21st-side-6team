@@ -3,5 +3,16 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.team6.dva.repository.PaymentMapper">
+    <insert id="insertPayment" parameterType="com.team6.dva.model.Payment">
+        INSERT
+               INTO tbl_payment (member_no, seat_id, total_price)
+        VALUES (#{memberNo}, #{seatId}, #{totalPrice})
+    </insert>
 
+    <update id="updateMemberBalance">
+        UPDATE tbl_member
+               SET balance = balance - #{amount}
+         WHERE member_id = #{memberId}
+           AND balance >= #{amount}
+    </update>
 </mapper>

@@ -15,8 +15,6 @@ public class ConcertMenu {
     static Scanner sc = new Scanner(System.in);
     public static int selectedShowNo;
 
-    // public static String selectedShowName;
-
     public ConcertMenu() {this.concertController = new ConcertController();
     this.seatMenu = new SeatMenu();}
 
@@ -39,13 +37,12 @@ public class ConcertMenu {
             Concert concert = concertController.selectConcertByShowName(selectedShowName);
 
             if (concert == null) {
-                System.out.println("공연이 없습니다.");
+                printErrorMessage("noShow");
                 System.out.println();
                 continue;
             }
 
             selectedShowNo = concert.getShowNo();
-            // selectedShowName = concert.getShowName();
             boolean exit = true;
             while (exit) {
                 System.out.println();
@@ -53,10 +50,10 @@ public class ConcertMenu {
                 String answer = sc.nextLine().trim().toUpperCase();
 
                 switch (answer) {
-                    case "Y": SeatMenu seatMenu = new SeatMenu(); seatMenu.showSeat(); exit = false; break;
-                    case "N": System.out.println("공연 목록으로 돌아갑니다."); exit = false; break;
+                    case "Y": SeatMenu seatMenu = new SeatMenu(); seatMenu.showSeat(); return;
+                    case "N": printSuccessMessage("backShowList"); exit = false; break;
                     default:
-                        System.out.println("잘못된 입력입니다. 다시 입력해주세요."); break;
+                        printErrorMessage("wrongInput"); break;
                 }
             }
             System.out.println();
@@ -82,8 +79,20 @@ public class ConcertMenu {
         System.out.println("⚠ ERROR! ⚠");
         String errorMessage = switch (errorCode) {
             case "selectList" -> "공연 목록 조회에 실패했습니다.";
+            case "noShow" -> "없는 공연입니다.";
+            case "wrongInput" -> "잘못된 입력입니다. 다시 입력해주세요.";
+            case "noSelect" -> "조회할 내용이 없습니다.";
             default -> "오류가 발생했습니다.";
         };
         System.out.println(errorMessage);
+    }
+
+        public void printSuccessMessage(String successCode) {
+        System.out.println("===== Success! =====");
+        String successMessage = switch (successCode) {
+            case "backShowList" -> "공연 목록으로 돌아갑니다.";
+            default -> "";
+        };
+        System.out.println(successMessage);
     }
 }

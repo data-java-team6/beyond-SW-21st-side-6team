@@ -30,4 +30,14 @@ public class ConcertService {
         sqlSession.close();
         return concertList;
     }
+
+    public Concert selectConcertById(int showNo) {
+        SqlSession sqlSession = getSqlSession();
+        ConcertMapper mapper = sqlSession.getMapper(ConcertMapper.class);
+
+        Concert concert = mapper.selectConcertById(showNo);
+
+        sqlSession.close();
+        return concert;
+    }
 }

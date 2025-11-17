@@ -16,25 +16,15 @@ public class SeatController {
         return seatService.selectSeatsByShowNo(showNo);
     }
 
-    public boolean reserveSeat(int showNo, String seatName) {
-        Seat seat = seatService.selectSeatByNameAndShowNo(showNo, seatName);
-        if (seat == null) {
-            System.out.println("존재하지 않는 좌석입니다.");
-            return false;
-        }
-        if (seat.isReserved()) {
-            System.out.println("이미 예약된 좌석입니다.");
-            return false;
-        }
+    public Seat getSeatByNameAndShowNo(int showNo, String seatName) {
+        return seatService.selectSeatByNameAndShowNo(showNo, seatName);
+    }
 
-        boolean success = seatService.reserveSeat(seat.getSeatId());
+    public boolean reserveSeat(int seatId) {
+        return seatService.reserveSeat(seatId);
+    }
 
-        if (success) {
-            System.out.println("좌석 [" + seatName + "] 예약이 완료되었습니다.");
-        } else {
-            System.out.println("예약 처리 중 오류가 발생했습니다.");
-            return false;
-        }
-        return true;
+    public boolean releaseSeats(List<Integer> seatIds) {
+        return seatService.reserveSeats(seatIds);
     }
 }

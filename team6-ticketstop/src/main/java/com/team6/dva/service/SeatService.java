@@ -42,4 +42,28 @@ public class SeatService {
         sqlSession.close();
         return result > 0;
     }
+
+    public boolean reserveSeats(List<Integer> seatIds) {
+        SqlSession sqlSession = getSqlSession();
+        SeatMapper seatMapper = sqlSession.getMapper(SeatMapper.class);
+
+        try {
+            for (int seatId : seatIds) {
+                int result = seatMapper.updateSeatReserved(seatId);
+                if(result == 0){
+                    sqlSession.rollback();
+                    return false;
+                }
+            }
+
+            sqlSession.commit();
+            return true;
+        } catch (Exception e){
+            sqlSession.rollback();
+            e.printStackTrace();
+            return false;
+        } finally {
+            sqlSession.close();
+        }
+    }
 }

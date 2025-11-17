@@ -33,7 +33,7 @@ public class ConcertController {
             ConcertMenu.printConcert(concert);
             return concert;
         } else {
-            System.out.println("조회할 내용이 없습니다.");
+            ConcertMenu.printErrorMessage("noSelect");
             return null;
         }
     }

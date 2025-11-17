@@ -9,7 +9,7 @@ public class AuthController {
 
     private final UserService userService;
     private final Scanner sc;
-    public static String id;
+    public static String id = "user01";
 
     public AuthController(UserService userService, Scanner sc) {
         this.userService = userService;

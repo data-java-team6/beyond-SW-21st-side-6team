@@ -76,7 +76,7 @@ public class PaymentMenu {
             printErrorMessage("lessBalance");
             System.out.println("부족 금액: " + (totalPrice - user.getBalance()) + "원");
             System.out.println();
-            printSuccessMessage("backMainMenu");
+            printInfoMessage("backMainMenu");
         return false;
         }
 
@@ -101,7 +101,7 @@ public class PaymentMenu {
                 return false;
             }
         } else {
-            printSuccessMessage("cancelPayment");
+            printInfoMessage("cancelPayment");
             return false;
         }
     }
@@ -122,9 +122,16 @@ public class PaymentMenu {
     public void printSuccessMessage(String successCode) {
         System.out.println("===== Success =====");
         String successMessage = switch (successCode) {
-            case "backMainMenu" -> "메인 메뉴로 돌아갑니다.";
             case "successPayment" -> "결제가 완료되었습니다!";
             case "thankYou" -> "감사합니다";
+            default -> "";
+        };
+        System.out.println(successMessage);
+    }
+
+    public void printInfoMessage(String infoCode) {
+        String successMessage = switch (infoCode) {
+            case "backMainMenu" -> "메인 메뉴로 돌아갑니다.";
             case "cancelPayment" -> "결제를 취소합니다.";
             default -> "";
         };

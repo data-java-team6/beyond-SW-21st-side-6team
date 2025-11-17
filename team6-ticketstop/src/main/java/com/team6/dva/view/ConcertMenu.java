@@ -51,7 +51,7 @@ public class ConcertMenu {
 
                 switch (answer) {
                     case "Y": SeatMenu seatMenu = new SeatMenu(); seatMenu.showSeat(); return;
-                    case "N": printSuccessMessage("backShowList"); exit = false; break;
+                    case "N": printInfoMessage("backShowList"); exit = false; break;
                     default:
                         printErrorMessage("wrongInput"); break;
                 }
@@ -87,9 +87,16 @@ public class ConcertMenu {
         System.out.println(errorMessage);
     }
 
-        public void printSuccessMessage(String successCode) {
-        System.out.println("===== Success! =====");
-        String successMessage = switch (successCode) {
+//    public void printSuccessMessage(String successCode) {
+//        System.out.println("===== Success! =====");
+//        String successMessage = switch (successCode) {
+//            case "backShowList" -> "공연 목록으로 돌아갑니다.";
+//            default -> "";
+//        };
+//        System.out.println(successMessage);
+//    }
+    public void printInfoMessage(String infoCode) {
+        String successMessage = switch (infoCode) {
             case "backShowList" -> "공연 목록으로 돌아갑니다.";
             default -> "";
         };
